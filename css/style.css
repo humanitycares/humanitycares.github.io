@@ -508,9 +508,21 @@ a:focus {
 }
 
 @media (max-width: 575.98px) {
-    .carousel .carousel-text h1 {
-        font-size: 25px;
+    .carousel .carousel-text p {
+        font-size: 14px;
+        line-height: 22px; /* Better readability */
     }
+
+    .carousel .carousel-btn .btn {
+        margin-bottom: 12px; /* Adds spacing below buttons */
+    }
+
+    .carousel .carousel-text h1,
+    .carousel .carousel-text p {
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Improves contrast */
+    }
+}
+
     
     .carousel .carousel-text .btn {
         padding: 8px 20px;
