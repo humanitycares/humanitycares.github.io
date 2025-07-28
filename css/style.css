@@ -251,13 +251,12 @@ a:focus {
 .navbar .navbar-brand {
     margin: 0;
     color: #ffffff;
-    font-size: 45px;
-    line-height: 0px;
+    font-size: 36px;
+    line-height: 1.2;
     font-weight: 700;
     letter-spacing: 5px;
     text-transform: uppercase;
 }
-
 .navbar .navbar-brand img {
     max-width: 100%;
     max-height: 40px;
@@ -2143,31 +2142,4 @@ a:focus {
         margin: 5px 0;
         text-align: center;
     }
-}
-@media (max-width: 768px) {
-  .carousel-caption {
-    top: 30% !important;
-    transform: translateY(-30%);
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.4); /* Optional background blur for readability */
-    text-align: center;
-  }
-
-  .carousel-caption h1 {
-    font-size: 20px;
-    line-height: 26px;
-    font-weight: 600;
-  }
-
-  .carousel-caption p {
-    font-size: 14px;
-    line-height: 20px;
-    padding: 5px 10px;
-  }
-
-  .btn-custom {
-    font-size: 14px;
-    padding: 8px 16px;
-    margin: 5px;
-  }
 }
