@@ -113,32 +113,21 @@
                     <p>Get In Touch</p>
                     <h2>Contact for any query</h2>
                 </div>
-                <div class="contact-img">
-                    <img src="img/contact.jpg" alt="Image">
-                </div>
-                <div class="contact-form">
-                        <div id="success"></div>
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
-                            <div class="control-group">
-                                <input type="text" class="form-control" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="control-group">
-                                <input type="email" class="form-control" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="control-group">
-                                <input type="text" class="form-control" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="control-group">
-                                <textarea class="form-control" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div>
-                                <button class="btn btn-custom" type="submit" id="sendMessageButton">Send Message</button>
-                            </div>
-                        </form>  
+           <div class="contact-img">
+    <img src="img/contact.jpg" alt="Image">
+</div>
+<div class="contact-form">
+    <form action="https://formspree.io/f/xgvzypgq" method="POST">
+        <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+        <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+        <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+        <textarea name="message" class="form-control" placeholder="Message" required></textarea>
+
+        <!-- Optional redirect -->
+       <input type="hidden" name="_redirect" value="https://www.humanitycares.org/thank-you.html">
+        <button class="btn btn-custom" type="submit">Send Message</button>
+    </form>
+</div>
         <!-- Contact End -->
 
 
