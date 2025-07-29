@@ -30,7 +30,7 @@
         <div class="row align-items-center">
             <div class="col-lg-5">
                 <div class="volunteer-form">
-                    <form action="https://formspree.io/f/xgvzypgq" method="POST">
+                    <form action="https://formspree.io/f/xgvzypgq" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
   <input type="hidden" name="_redirect" value="https://www.humanitycares.org/thank-you.html">
                         <div class="control-group">
                             <input type="text" name="name" class="form-control" placeholder="Name" required />
@@ -96,5 +96,19 @@ function showThankYouMessage() {
 <script src="mail/jqBootstrapValidation.min.js"></script>
 <script src="mail/contact.js"></script>
 <script src="js/main.js"></script>
+<script>
+    var submitted = false;
+    window.addEventListener('load', function () {
+        var form = document.querySelector('.volunteer-form form');
+        var iframe = document.getElementById('hidden_iframe');
+
+        iframe.onload = function () {
+            if (submitted) {
+                form.style.display = 'none';
+                document.getElementById('thank-you-message').style.display = 'block';
+            }
+        };
+    });
+</script>
 </body>
 </html>
