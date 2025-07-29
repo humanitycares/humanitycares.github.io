@@ -737,47 +737,36 @@ Whether it’s distributing food, helping with medical camps, supporting educati
             </div>
         </div>
         <!-- Testimonial End -->
-        
-        
-        <!-- Contact Start -->
-        <div class="contact">
-            <div class="container">
-                <div class="section-header text-center">
-                    <p>Get In Touch</p>
-                    <h2>Contact for any query</h2>
-                </div>
-                <div class="contact-img">
-                    <img src="img/contact.jpg" alt="Image">
-                </div>
-                <div class="contact-form">
-                        <div id="success"></div>
-                        <form action="https://formspree.io/f/xgvzypgq" method="POST">
-                            <form action="https://formspree.io/f/xgvzypgq" method="POST">
+           
+       <!-- Contact Start -->
+<div class="contact-form">
+  <form id="contactForm" action="https://formspree.io/f/xgvzypgq" method="POST">
     <div class="control-group">
-        <input type="text" name="name" class="form-control" placeholder="Your Name" required />
+      <input type="text" name="name" class="form-control" placeholder="Your Name" required />
     </div>
     <div class="control-group">
-        <input type="email" name="email" class="form-control" placeholder="Your Email" required />
+      <input type="email" name="email" class="form-control" placeholder="Your Email" required />
     </div>
     <div class="control-group">
-        <input type="text" name="subject" class="form-control" placeholder="Subject" required />
+      <input type="text" name="subject" class="form-control" placeholder="Subject" required />
     </div>
     <div class="control-group">
-        <textarea name="message" class="form-control" placeholder="Message" required></textarea>
+      <textarea name="message" class="form-control" placeholder="Message" required></textarea>
     </div>
 
     <!-- Anti-spam honeypot -->
-    <input type="text" name="_gotcha" style="display:none">
+    <input type="text" name="_gotcha" style="display:none" />
 
-    <!-- Thank You Redirect -->
-    <input type="hidden" name="_redirect" value="https://www.humanitycares.org/thank-you.html">
+    <!-- Optional redirect -->
+    <input type="hidden" name="_redirect" value="https://www.humanitycares.org/thank-you.html" />
 
     <div>
-        <button class="btn btn-custom" type="submit">Send Message</button>
+      <button class="btn btn-custom" type="submit">Send Message</button>
     </div>
-</form>
-        <!-- Contact End -->
-
+    <div id="form-status" style="margin-top: 15px;"></div>
+  </form>
+</div>
+<!-- Contact End -->
 
         <!-- Blog Start -->
         <div class="blog">
