@@ -2033,7 +2033,6 @@ a:focus {
 
 /*******************************/
 /********* Footer CSS **********/
-/*******************************/
 .footer {
     position: relative;
     margin-top: 45px;
@@ -2041,6 +2040,7 @@ a:focus {
     background: #20212B;
 }
 
+/* General Section Styling */
 .footer .footer-contact,
 .footer .footer-link,
 .footer .footer-newsletter {
@@ -2049,6 +2049,7 @@ a:focus {
     color: #ffffff;
 }
 
+/* Headings */
 .footer .footer-contact h2,
 .footer .footer-link h2,
 .footer .footer-newsletter h2 {
@@ -2058,15 +2059,15 @@ a:focus {
     color: #FDBE33;
 }
 
+/* Links */
 .footer .footer-link a {
     display: block;
     margin-bottom: 10px;
     color: #ffffff;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .footer .footer-link a::before {
-    position: relative;
     content: "\f105";
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
@@ -2078,10 +2079,12 @@ a:focus {
     letter-spacing: 1px;
 }
 
+/* Contact Info Icons */
 .footer .footer-contact p i {
     width: 25px;
 }
 
+/* Social Icons */
 .footer .footer-social {
     position: relative;
     margin-top: 20px;
@@ -2094,16 +2097,18 @@ a:focus {
     align-items: center;
     justify-content: center;
     border: 1px solid #FDBE33;
-    color: #fff;
+    color: #ffffff;
     margin-right: 8px;
     margin-bottom: 5px;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
-.footer .footer-social a {
-    margin-top: 5px;
+.footer .footer-social a:hover {
+    background-color: #FDBE33;
+    color: #20212B;
 }
 
+/* Newsletter Form */
 .footer .footer-newsletter form {
     position: relative;
     width: 100%;
@@ -2114,6 +2119,7 @@ a:focus {
     height: 60px;
     border: none;
     border-radius: 0;
+    padding: 0 15px;
 }
 
 .footer .footer-newsletter label {
@@ -2128,6 +2134,7 @@ a:focus {
     padding: 15px 0;
 }
 
+/* Copyright */
 .footer .copyright {
     padding: 0 30px;
 }
@@ -2135,7 +2142,7 @@ a:focus {
 .footer .copyright .row {
     padding-top: 25px;
     padding-bottom: 25px;
-    border-top: 1px solid rgba(256, 256, 256, .1);
+    border-top: 1px solid rgba(256, 256, 256, 0.1);
 }
 
 .footer .copyright p {
@@ -2149,12 +2156,14 @@ a:focus {
 
 .footer .copyright p a {
     color: #ffffff;
+    transition: 0.3s;
 }
 
 .footer .copyright p a:hover {
     color: #FDBE33;
 }
 
+/* Responsive */
 @media (max-width: 767.98px) {
     .footer .copyright p,
     .footer .copyright .col-md-6:last-child p {
