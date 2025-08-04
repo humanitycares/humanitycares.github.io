@@ -709,7 +709,7 @@ a:focus {
     background: transparent;
 }
 
-.about .about-tab .tab-content .container {
+.about .about-tab .tab-content .container-fluid {
     padding: 0;
 }
 
@@ -2120,5 +2120,6 @@ a:focus {
   color: #ffc107 !important;
   text-decoration: underline;
 }
+
 
 
