@@ -2057,11 +2057,6 @@ a:focus {
     transition: all 0.3s ease;
 }
 
-.footer a:hover {
-    color: #FDBE33;
-    padding-left: 5px;
-}
-
 .footer .footer-social a {
     width: 36px;
     height: 36px;
@@ -2120,6 +2115,4 @@ a:focus {
   color: #ffc107 !important;
   text-decoration: underline;
 }
-
-
 
