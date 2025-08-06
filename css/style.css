@@ -2034,7 +2034,7 @@ a:focus {
 /********* Footer CSS **********/
 .footer {
     background: #20212B;
-    padding: 60px 0 30px 0;
+    padding: 60px 0;
     color: #ffffff;
 }
 
@@ -2116,3 +2116,4 @@ a:focus {
     text-decoration: underline;
     padding-left: 5px;
 }
+
