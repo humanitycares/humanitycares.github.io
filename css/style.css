@@ -2035,6 +2035,7 @@ a:focus {
 .footer {
     background: #20212B;
     padding: 60px 0 30px 0;
+    width: 100%;
     color: #ffffff;
 }
 
@@ -2116,5 +2117,6 @@ a:focus {
     text-decoration: underline;
     padding-left: 5px;
 }
+
 
 
