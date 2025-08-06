@@ -2111,8 +2111,4 @@ a:focus {
         justify-content: center;
     }
 }
-.footer a:hover {
-  color: #ffc107 !important;
-  text-decoration: underline;
-}
 
