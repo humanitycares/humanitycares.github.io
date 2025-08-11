@@ -3,114 +3,121 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Doha Music Lovers - News Articles</title>
+<title>Doha Music Lovers - News</title>
 <style>
     body {
         font-family: Arial, sans-serif;
         margin: 0;
-        background: #f8f8f8;
+        background: #f9f9f9;
         color: #333;
     }
-    .container {
-        width: 90%;
+    .news-section {
         max-width: 1200px;
         margin: auto;
-        padding: 20px;
+        padding: 40px 20px;
     }
-    h1 {
+    .news-title {
         text-align: center;
+        font-size: 2.5em;
         margin-bottom: 30px;
-        color: #20212B;
+        color: #222;
+        border-bottom: 3px solid #e63946;
+        display: inline-block;
+        padding-bottom: 10px;
     }
     .news-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
     }
     .news-card {
         background: #fff;
         border-radius: 8px;
         overflow: hidden;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        display: flex;
-        flex-direction: column;
-        transition: transform 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease-in-out;
     }
     .news-card:hover {
         transform: translateY(-5px);
     }
-    .news-card img {
+    .news-image img {
         width: 100%;
         height: 200px;
         object-fit: cover;
     }
     .news-content {
-        padding: 15px;
-        flex: 1;
+        padding: 20px;
     }
-    .news-title {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 10px;
-        color: #444;
+    .news-content h3 {
+        font-size: 1.4em;
+        margin: 0 0 10px;
+        color: #e63946;
     }
-    .news-meta {
-        font-size: 12px;
-        color: #999;
-        margin-bottom: 10px;
-    }
-    .news-summary {
-        font-size: 14px;
-        line-height: 1.5;
+    .news-content p {
+        font-size: 0.95em;
+        color: #555;
+        line-height: 1.6;
     }
     .read-more {
         display: inline-block;
         margin-top: 10px;
-        color: #d9534f;
-        font-weight: bold;
+        padding: 8px 15px;
+        background: #e63946;
+        color: #fff;
+        border-radius: 4px;
         text-decoration: none;
+        font-size: 0.9em;
     }
     .read-more:hover {
-        text-decoration: underline;
+        background: #c53030;
     }
 </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Doha Music Lovers – In the Media</h1>
+<section class="news-section">
+    <h2 class="news-title">Doha Music Lovers in the News</h2>
     <div class="news-grid">
-        
-        <!-- Example News Card -->
+
+        <!-- Article 1 -->
         <div class="news-card">
-            <img src="article-dml-2.jpg" alt="News Image">
+            <div class="news-image">
+                <img src="images/dml-2.jpg" alt="Doha Music Lovers Event">
+            </div>
             <div class="news-content">
-                <div class="news-title">Doha Music Lovers - Anniversary Celebrations</div>
-                <div class="news-meta">Published: Feb 3, 2022 | Gulf Times</div>
-                <div class="news-summary">
-                    Doha Music Lovers Group, a well-known musical group in Qatar, recently celebrated its first anniversary at the Integrated Indian Community Centre (IICC), which was attended by many intellectuals, delegates and music-loving personalities.
-                </div>
-                <a href="https://www.gulf-times.com/story/709211/Doha-Music-Lovers-Group-celebrates-first-anniversary" class="read-more" target="_blank">Read Full Article →</a>
+                <h3>Doha Music Lovers - Anniversary Celebrations</h3>
+                <p>Doha Music Lovers Group, a well-known musical group in Qatar, recently celebrated its first anniversary at the Integrated Indian Community Centre (IICC), which was attended by many intellectuals, delegates and music-loving personalities.</p>
+                <a href="full-article-link.html" class="read-more">Read More</a>
             </div>
         </div>
 
+        <!-- Article 2 -->
         <div class="news-card">
-            <img src="article-image2.jpg" alt="News Image">
+            <div class="news-image">
+                <img src="images/news2.jpg" alt="Music Workshop">
+            </div>
             <div class="news-content">
-                <div class="news-title">Music Brings Communities Together</div>
-                <div class="news-meta">Published: June 10, 2025 | Gulf Times</div>
-                <div class="news-summary">
-                    The group continues to inspire audiences by showcasing diverse musical styles and
-                    promoting peace through artistic collaboration.
-                </div>
-                <a href="full-article-link.html" class="read-more" target="_blank">Read Full Article →</a>
+                <h3>Music Workshop Inspires Aspiring Artists</h3>
+                <p>A special workshop organized by Doha Music Lovers gave aspiring musicians a chance to learn from seasoned performers and industry professionals.</p>
+                <a href="full-article-link.html" class="read-more">Read More</a>
             </div>
         </div>
 
-        <!-- Add more news-card blocks here -->
+        <!-- Article 3 -->
+        <div class="news-card">
+            <div class="news-image">
+                <img src="images/news3.jpg" alt="Community Outreach">
+            </div>
+            <div class="news-content">
+                <h3>Bringing Communities Together Through Music</h3>
+                <p>Through regular events, Doha Music Lovers continues to bridge cultures and strengthen community ties in Qatar’s diverse society.</p>
+                <a href="full-article-link.html" class="read-more">Read More</a>
+            </div>
+        </div>
 
     </div>
-</div>
+</section>
 
 </body>
 </html>
+
