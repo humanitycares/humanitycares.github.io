@@ -2205,6 +2205,33 @@ a:focus {
   font-size: 0.95rem;
   color: #555;
 }
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* space between items */
+    margin-top: 20px;
+}
+
+.news-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.news-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.news-card p {
+    padding: 10px;
+    font-size: 14px;
+}
+
 
 
 
