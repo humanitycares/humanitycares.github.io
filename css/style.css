@@ -883,7 +883,10 @@ a:focus {
   background: #fff;
   color: #333;
 }
-
+#customAmount {
+    color: #000 !important;   /* Black text */
+    background-color: #fff !important; /* White background */
+}
 
 
 /*******************************/
@@ -2291,6 +2294,7 @@ a:focus {
         grid-template-columns: 1fr !important; /* 1 per row */
     }
 }
+
 
 
 
