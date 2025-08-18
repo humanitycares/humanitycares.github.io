@@ -131,36 +131,88 @@ Together, we can make a difference.
                     </div>
                     <div class="col-lg-5">
                         <div class="donate-form">
-                            <form>
-    <div class="control-group">
-        <input type="text" class="form-control" placeholder="Name" required="required" />
-    </div>
-    <div class="control-group">
-        <input type="email" class="form-control" placeholder="Email" required="required" />
-    </div>
+    <form id="donationForm">
+        <div class="control-group">
+            <input type="text" class="form-control" placeholder="Name" required="required" />
+        </div>
+        <div class="control-group">
+            <input type="email" class="form-control" placeholder="Email" required="required" />
+        </div>
 
-    <!-- Fixed amount buttons -->
-    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-custom active">
-            <input type="radio" name="options" checked> INR500
-        </label>
-        <label class="btn btn-custom">
-            <input type="radio" name="options"> INR1000
-        </label>
-        <label class="btn btn-custom">
-            <input type="radio" name="options"> INR2000
-        </label>
-    </div>
+        <!-- Fixed amount buttons -->
+        <div class="btn-group btn-group-toggle" data-toggle="buttons" id="amountButtons">
+            <label class="btn btn-custom active">
+                <input type="radio" name="donation_amount" value="500" checked> INR500
+            </label>
+            <label class="btn btn-custom">
+                <input type="radio" name="donation_amount" value="1000"> INR1000
+            </label>
+            <label class="btn btn-custom">
+                <input type="radio" name="donation_amount" value="2000"> INR2000
+            </label>
+        </div>
 
-    <!-- Custom amount input (outside button group) -->
-    <div class="control-group mt-2">
-        <input type="number" class="form-control" placeholder="Any Other Amount" name="custom_amount">
-    </div>
+        <!-- Custom amount input styled like a button -->
+        <div class="control-group mt-2">
+            <label class="btn btn-custom w-100" id="customAmountLabel">
+                <input type="number" class="form-control border-0" id="customAmount" placeholder="Any Other Amount">
+            </label>
+        </div>
 
-    <div>
-        <button class="btn btn-custom" type="submit">Donate Now</button>
-    </div>
-</form>
+        <div>
+            <button class="btn btn-custom" type="submit">Donate Now</button>
+        </div>
+    </form>
+</div>
+
+<script>
+const customAmountInput = document.getElementById("customAmount");
+const customAmountLabel = document.getElementById("customAmountLabel");
+const amountButtons = document.querySelectorAll('input[name="donation_amount"]');
+const amountLabels = document.querySelectorAll("#amountButtons .btn");
+
+// If user types in custom amount, unselect fixed buttons & highlight custom box
+customAmountInput.addEventListener("input", function() {
+    if (this.value && this.value > 0) {
+        amountButtons.forEach(btn => btn.checked = false);
+        amountLabels.forEach(lbl => lbl.classList.remove("active"));
+        customAmountLabel.classList.add("active");
+    } else {
+        customAmountLabel.classList.remove("active");
+    }
+});
+
+// If user clicks a fixed button, clear custom input & highlight that button
+amountButtons.forEach(btn => {
+    btn.addEventListener("change", function() {
+        if (this.checked) {
+            customAmountInput.value = "";
+            customAmountLabel.classList.remove("active");
+        }
+    });
+});
+
+// Handle form submit
+document.getElementById("donationForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // prevent actual submit for now
+
+    let selectedAmount = document.querySelector('input[name="donation_amount"]:checked');
+    let customAmount = customAmountInput.value;
+
+    if (customAmount && customAmount > 0) {
+        selectedAmount = customAmount;
+    } else if (selectedAmount) {
+        selectedAmount = selectedAmount.value;
+    } else {
+        alert("Please select or enter an amount");
+        return;
+    }
+
+    alert("Donation Amount: INR " + selectedAmount);
+
+    // 👉 Replace alert() with your payment processing logic
+});
+</script>
                         </div>
                     </div>
                 </div>
@@ -258,6 +310,7 @@ Together, we can make a difference.
         <script src="js/main.js"></script>
     </body>
 </html>
+
 
 
 
