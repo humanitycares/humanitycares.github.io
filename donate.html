@@ -132,26 +132,36 @@ Together, we can make a difference.
                     <div class="col-lg-5">
                         <div class="donate-form">
                             <form>
-                                <div class="control-group">
-                                    <input type="text" class="form-control" placeholder="Name" required="required" />
-                                </div>
-                                <div class="control-group">
-                                    <input type="email" class="form-control" placeholder="Email" required="required" />
-                                </div>
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-custom active">
-                                        <input type="radio" name="options" checked> INR500
-                                    </label>
-                                    <label class="btn btn-custom">
-                                        <input type="radio" name="options"> INR1000
-                                    </label>
-                                    <label class="btn btn-custom">
-                                        <input type="radio" name="options"> INR2000
-                                    </label>                                    
-                                    <label class="btn btn-custom">
-                                    <input type="number" placeholder="Any Other Amount" name="custom_amount">
-                                    </label>
-                                </div>
+    <div class="control-group">
+        <input type="text" class="form-control" placeholder="Name" required="required" />
+    </div>
+    <div class="control-group">
+        <input type="email" class="form-control" placeholder="Email" required="required" />
+    </div>
+
+    <!-- Fixed amount buttons -->
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-custom active">
+            <input type="radio" name="options" checked> INR500
+        </label>
+        <label class="btn btn-custom">
+            <input type="radio" name="options"> INR1000
+        </label>
+        <label class="btn btn-custom">
+            <input type="radio" name="options"> INR2000
+        </label>
+    </div>
+
+    <!-- Custom amount input (outside button group) -->
+    <div class="control-group mt-2">
+        <input type="number" class="form-control" placeholder="Any Other Amount" name="custom_amount">
+    </div>
+
+    <div>
+        <button class="btn btn-custom" type="submit">Donate Now</button>
+    </div>
+</form>
+
                                 <div>
                                     <button class="btn btn-custom" type="submit">Donate Now</button>
                                 </div>
@@ -253,4 +263,5 @@ Together, we can make a difference.
         <script src="js/main.js"></script>
     </body>
 </html>
+
 
