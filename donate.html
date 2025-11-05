@@ -1,132 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Donate | Humanity Cares</title>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="Donate to Humanity Cares NGO" name="keywords">
-  <meta content="Support Humanity Cares through your donation." name="description">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
+      color: #333;
+    }
 
-  <!-- Favicon -->
-  <link href="img/favicon.ico" rel="icon">
+    header {
+      background: #f8f8f8;
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+    header h1 {
+      font-size: 30px;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
 
-  <!-- CSS Libraries -->
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="lib/font-awesome/css/all.min.css" rel="stylesheet">
+    header p {
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
 
-  <!-- Template Stylesheet -->
-  <link href="css/style.css" rel="stylesheet">
+    .donate-section {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .bank-details {
+      background: #f3f6f9;
+      max-width: 500px;
+      margin: 30px auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    .bank-details h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+
+    .bank-details p {
+      font-size: 15px;
+      margin: 5px 0;
+      color: #444;
+    }
+
+    footer {
+      background: #1e1e28;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 14px;
+    }
+  </style>
 </head>
 
 <body>
-  <!-- Navbar Start -->
-  <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-    <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-      <h2 class="m-0 text-primary"><i class="fa fa-hand-holding-heart me-3"></i>Humanity Cares</h2>
-    </a>
-    <button class="navbar-toggler me-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <div class="navbar-nav ms-auto p-4 p-lg-0">
-        <a href="index.html" class="nav-item nav-link">Home</a>
-        <a href="about.html" class="nav-item nav-link">About</a>
-        <a href="causes.html" class="nav-item nav-link">Causes</a>
-        <a href="volunteer.html" class="nav-item nav-link">Volunteer</a>
-        <a href="contact.html" class="nav-item nav-link">Contact</a>
-        <a href="donate.html" class="nav-item nav-link active">Donate</a>
-      </div>
-    </div>
-  </nav>
-  <!-- Navbar End -->
+  <header>
+    <h1>Your Donation Can Change Lives</h1>
+    <p>Every contribution supports education, healthcare, and welfare initiatives for the underprivileged. Donate online or via bank transfer.</p>
+  </header>
 
-  <!-- Donate Section Start -->
-  <div class="container-xxl py-5">
-    <div class="container">
-      <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-        <h6 class="text-primary text-uppercase mb-2">Make a Difference</h6>
-        <h1 class="display-6 mb-4">Your Donation Can Change Lives</h1>
-        <p>Every contribution helps us support education, food, and healthcare for the underprivileged. Donate securely online or via bank transfer.</p>
-      </div>
+  <section class="donate-section">
+    <!-- ✅ Razorpay Button -->
+    <form>
+      <script 
+        src="https://checkout.razorpay.com/v1/payment-button.js"
+        data-payment_button_id="pl_Rc2E1sQSYC2LDE" 
+        async> 
+      </script>
+    </form>
+  </section>
 
-      <div class="row g-5 justify-content-center">
-        <!-- Online Donation -->
-        <div class="col-lg-5 col-md-6 wow fadeInUp text-center" data-wow-delay="0.3s">
-          <div class="bg-light p-4 rounded shadow-sm">
-            <h4 class="mb-3 text-primary">Donate Online</h4>
-            <form>
-              <script src="https://checkout.razorpay.com/v1/payment-button.js"
-                      data-payment_button_id="pl_Rc2E1sQSYC2LDE"
-                      async> </script>
-            </form>
-          </div>
-        </div>
-
-        <!-- Bank Transfer -->
-        <div class="col-lg-5 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-          <div class="bg-light p-4 rounded shadow-sm">
-            <h4 class="mb-3 text-primary text-center">Donate via Bank Transfer</h4>
-            <p><strong>Account Name:</strong> HUMANITY CARES</p>
-            <p><strong>Bank Name:</strong> ICICI Bank</p>
-            <p><strong>Account Number:</strong> 131605001366</p>
-            <p><strong>IFSC Code:</strong> ICIC0001316</p>
-            <p><strong>SWIFT Code:</strong> ICIC0001316</p>
-            <p><strong>Branch:</strong> (Enter your branch name if needed)</p>
-            <p class="text-muted mt-3">Please email your payment receipt to
-              <a href="mailto:info@humanitycares.org">info@humanitycares.org</a> for acknowledgment.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="bank-details">
+    <h2>Donate via Bank Transfer</h2>
+    <p><strong>Account Name:</strong> HUMANITY CARES</p>
+    <p><strong>Bank Name:</strong> ICICI Bank</p>
+    <p><strong>Account Number:</strong> 131605001366</p>
+    <p><strong>IFSC Code:</strong> ICIC0001316</p>
+    <p><strong>SWIFT Code:</strong> ICIC0001316</p>
+    <p><strong>Branch:</strong> (Enter your branch name if needed)</p>
+    <p>Please email your payment receipt to <a href="mailto:info@humanitycares.org">info@humanitycares.org</a> for acknowledgment.</p>
   </div>
-  <!-- Donate Section End -->
 
-  <!-- Footer Start -->
-  <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-    <div class="container py-5">
-      <div class="row g-5">
-        <div class="col-lg-4 col-md-6">
-          <h5 class="text-white mb-4">Humanity Cares</h5>
-          <p>Together, we can make the world a better place through compassion, education, and support for the needy.</p>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <h5 class="text-white mb-4">Contact</h5>
-          <p><i class="fa fa-map-marker-alt me-3"></i>Hyderabad, India</p>
-          <p><i class="fa fa-envelope me-3"></i>info@humanitycares.org</p>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <h5 class="text-white mb-4">Follow Us</h5>
-          <div class="d-flex pt-2">
-            <a class="btn btn-outline-light btn-social me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-            <a class="btn btn-outline-light btn-social me-2" href="#"><i class="fab fa-twitter"></i></a>
-            <a class="btn btn-outline-light btn-social me-2" href="#"><i class="fab fa-instagram"></i></a>
-            <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-linkedin-in"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container-fluid copyright py-4">
-      <div class="container text-center">
-        <p class="mb-0">&copy; <a class="fw-semi-bold" href="#">Humanity Cares</a>. All Rights Reserved.</p>
-      </div>
-    </div>
-  </div>
-  <!-- Footer End -->
-
-  <!-- JS Files -->
-  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="lib/wow/wow.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/waypoints/waypoints.min.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="js/main.js"></script>
+  <footer>
+    <p>Together, we can make the world a better place through compassion, education, and support for the needy.</p>
+  </footer>
 </body>
 </html>
