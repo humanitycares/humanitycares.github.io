@@ -1,316 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>HUMANITY CARES - Let's make the difference</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="Free Website Template" name="keywords">
-        <meta content="Free Website Template" name="description">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donate - Humanity Cares</title>
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #fafafa;
+      color: #333;
+      line-height: 1.6;
+    }
 
-        <!-- Favicon -->
-        <link href="img/favicon.ico" rel="icon">
+    .donate-header {
+      background: url("assets/img/donate-banner.jpg") center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
 
-        <!-- Google Font -->
-        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-        
-        <!-- CSS Libraries -->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-        <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
-        <link href="lib/animate/animate.min.css" rel="stylesheet">
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    .donate-header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
 
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
-    </head>
+    .donate-header p {
+      font-size: 1.2em;
+    }
 
-    <body>
-        <!-- Top Bar Start -->
-        <div class="top-bar d-none d-md-block">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="top-bar-left">
-                            <div class="text">
-                                <i class="fa fa-phone-alt"></i>
-                                <p>+91 9030140600</p>
-                            </div>
-                            <div class="text">
-                                <i class="fa fa-envelope"></i>
-                                <p>contact@humanitycares.org</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="top-bar-right">
-                            <div class="social">
-                                <a href=""><i class="fab fa-twitter"></i></a>
-                                <a href=""><i class="fab fa-facebook-f"></i></a>
-                                <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Top Bar End -->
+    .donate-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
 
-        <!-- Nav Bar Start -->
-        <div class="navbar navbar-expand-lg bg-dark navbar-dark">
-            <div class="container-fluid">
-                <a href="index.html" class="navbar-brand">HUMANITY CARES</a>
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    h2 {
+      color: #e63946;
+      margin-bottom: 20px;
+    }
 
-                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                    <div class="navbar-nav ml-auto">
-                        <a href="index.html" class="nav-item nav-link">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="causes.html" class="nav-item nav-link">Causes</a>
-                        <a href="event.html" class="nav-item nav-link">Events</a>
-                        <a href="blog.html" class="nav-item nav-link">Blog</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu">
-                                <a href="single.html" class="dropdown-item">Detail Page</a>
-                                <a href="service.html" class="dropdown-item">What We Do</a>
-                                <a href="team.html" class="dropdown-item">Meet The Team</a>
-                                <a href="donate.html" class="dropdown-item">Donate Now</a>
-                                <a href="volunteer.html" class="dropdown-item">Become A Volunteer</a>
-                            </div>
-                        </div>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Nav Bar End -->
-        
-        
-        <!-- Page Header Start -->
-        <div class="page-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h2>Donate Now</h2>
-                    </div>
-                    <div class="col-12">
-                        <a href="">Home</a>
-                        <a href="">Donate</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Page Header End -->
-        
-        
-        <!-- Donate Start -->
-        <div class="container">
-            <div class="donate" data-parallax="scroll" data-image-src="img/donate.jpg">
-                <div class="row align-items-center">
-                    <div class="col-lg-7">
-                        <div class="donate-content">
-                            <div class="section-header">
-                                <p>Donate Now</p>
-                                <h2>Let's donate to needy people for better lives</h2>
-                            </div>
-                            <div class="donate-text">
-                                <p>
-                                    🌟 Your small contribution can bring a big change.
-🤝 Support food, education, healthcare & more.
-💖 Be the reason someone smiles today.
-📦 Every rupee you give goes directly to those in need.
+    .bank-details {
+      background: #f7f7f7;
+      border-left: 5px solid #e63946;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+    }
 
-Together, we can make a difference.
+    .bank-details p {
+      margin: 8px 0;
+      font-size: 1.1em;
+    }
 
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="donate-form">
-    <form id="donationForm">
-        <div class="control-group">
-            <input type="text" class="form-control" placeholder="Name" required="required" />
-        </div>
-        <div class="control-group">
-            <input type="email" class="form-control" placeholder="Email" required="required" />
-        </div>
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
 
-        <!-- Fixed amount buttons -->
-        <div class="btn-group btn-group-toggle" data-toggle="buttons" id="amountButtons">
-            <label class="btn btn-custom active">
-                <input type="radio" name="donation_amount" value="500" checked> INR500
-            </label>
-            <label class="btn btn-custom">
-                <input type="radio" name="donation_amount" value="1000"> INR1000
-            </label>
-            <label class="btn btn-custom">
-                <input type="radio" name="donation_amount" value="2000"> INR2000
-            </label>
-        </div>
+    input, textarea, button {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      width: 100%;
+    }
 
-        <!-- Custom amount input styled like a button -->
-        <div class="control-group mt-2">
-            <label class="btn btn-custom w-100" id="customAmountLabel">
-                <input type="number" class="form-control border-0" id="customAmount" placeholder="Any Other Amount">
-            </label>
-        </div>
-        <div>
-            <button class="btn btn-custom" type="submit">Donate Now</button>
-        </div>
+    button {
+      background: #e63946;
+      color: white;
+      cursor: pointer;
+      border: none;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #c92a3c;
+    }
+
+    @media (max-width: 768px) {
+      .donate-header h1 {
+        font-size: 2em;
+      }
+      .donate-container {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER SECTION -->
+  <header class="donate-header">
+    <h1>Donate to Humanity Cares</h1>
+    <p>Your small contribution can bring a big change 🌍💖</p>
+  </header>
+
+  <!-- MAIN DONATE CONTENT -->
+  <div class="donate-container">
+    <h2>Bank Transfer Details 🏦</h2>
+    <div class="bank-details">
+      <p><strong>Account Name:</strong> HUMANITY CARES</p>
+      <p><strong>Bank Name:</strong> ICICI Bank</p>
+      <p><strong>Account Number:</strong> 131605001366</p>
+      <p><strong>IFSC Code:</strong> ICIC0001316</p>
+      <p><strong>Branch:</strong> Hyderabad, Telangana</p>
+      <p><strong>SWIFT Code:</strong> ICIC0001316</p>
+      <p><strong>UPI ID (Optional):</strong> humanitycares@icici</p>
+    </div>
+
+    <h2>Donate Online 💳</h2>
+    <form action="https://formspree.io/f/xgvzypgq" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="_replyto" placeholder="Your Email" required />
+      <input type="number" name="amount" placeholder="Donation Amount (₹)" required />
+      <textarea name="message" rows="4" placeholder="Message or Purpose (optional)"></textarea>
+      <button type="submit">Send Donation Details</button>
     </form>
-</div>
 
-<script>
-const customAmountInput = document.getElementById("customAmount");
-const customAmountLabel = document.getElementById("customAmountLabel");
-const amountButtons = document.querySelectorAll('input[name="donation_amount"]');
-const amountLabels = document.querySelectorAll("#amountButtons .btn");
+    <p style="margin-top:20px;font-size:0.95em;">
+      💡 After completing your bank transfer, please fill out the above form or email us at 
+      <a href="mailto:info@humanitycares.org">info@humanitycares.org</a> 
+      with your transaction details for a receipt.
+    </p>
+  </div>
 
-// If user types in custom amount, unselect fixed buttons & highlight custom box
-customAmountInput.addEventListener("input", function() {
-    if (this.value && this.value > 0) {
-        amountButtons.forEach(btn => btn.checked = false);
-        amountLabels.forEach(lbl => lbl.classList.remove("active"));
-        customAmountLabel.classList.add("active");
-    } else {
-        customAmountLabel.classList.remove("active");
-    }
-});
+  <!-- FOOTER -->
+  <footer style="text-align:center;padding:30px;background:#222;color:white;">
+    <p>&copy; 2025 Humanity Cares Foundation | All Rights Reserved</p>
+  </footer>
 
-// If user clicks a fixed button, clear custom input & highlight that button
-amountButtons.forEach(btn => {
-    btn.addEventListener("change", function() {
-        if (this.checked) {
-            customAmountInput.value = "";
-            customAmountLabel.classList.remove("active");
-        }
-    });
-});
-
-// Handle form submit
-document.getElementById("donationForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // prevent actual submit for now
-
-    let selectedAmount = document.querySelector('input[name="donation_amount"]:checked');
-    let customAmount = customAmountInput.value;
-
-    if (customAmount && customAmount > 0) {
-        selectedAmount = customAmount;
-    } else if (selectedAmount) {
-        selectedAmount = selectedAmount.value;
-    } else {
-        alert("Please select or enter an amount");
-        return;
-    }
-
-    alert("Donation Amount: INR " + selectedAmount);
-
-    // 👉 Replace alert() with your payment processing logic
-});
-</script>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Donate End -->
-
-
-        <!-- Footer Start -->
-        <div class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-contact">
-                            <h2>Our Head Office</h2>
-                            <p><i class="fa fa-map-marker-alt"></i>Rajendra Nagar, Hyderabad, Telangana, INDIA</p>
-                            <p><i class="fa fa-phone-alt"></i>+91 9030140600</p>
-                            <p><i class="fa fa-envelope"></i>contact@humanitycares.org</p>
-                            <div class="footer-social">
-                                <a class="btn btn-custom" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-custom" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-custom" href=""><i class="fab fa-youtube"></i></a>
-                                <a class="btn btn-custom" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-custom" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-link">
-                            <h2>Popular Links</h2>
-                            <a href="">About Us</a>
-                            <a href="">Contact Us</a>
-                            <a href="">Popular Causes</a>
-                            <a href="">Upcoming Events</a>
-                            <a href="">Latest Blog</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-link">
-                            <h2>Useful Links</h2>
-                            <a href="">Terms of use</a>
-                            <a href="">Privacy policy</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FQAs</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-newsletter">
-                            <h2>Newsletter</h2>
-                            <form>
-                                <input class="form-control" placeholder="Email goes here">
-                                <button class="btn btn-custom">Submit</button>
-                                <label>Don't worry, we don't spam!</label>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container copyright">
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>&copy; <a href="#">Humanity Cares</a>, All Right Reserved.</p>
-                    </div>
-                    <div class="col-md-6">
-                        <p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Footer End -->
-
-        <!-- Back to top button -->
-        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-        
-        <!-- Pre Loader -->
-        <div id="loader" class="show">
-            <div class="loader"></div>
-        </div>
-
-        <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/counterup/counterup.min.js"></script>
-        <script src="lib/parallax/parallax.min.js"></script>
-        
-        <!-- Contact Javascript File -->
-        <script src="mail/jqBootstrapValidation.min.js"></script>
-        <script src="mail/contact.js"></script>
-
-        <!-- Template Javascript -->
-        <script src="js/main.js"></script>
-    </body>
+</body>
 </html>
-
-
-
-
-
