@@ -1,1 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Gallery – HUMANITY CARES</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Your existing stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: #f4f4f4;
+        }
+
+        /* ── PAGE HEADER ── */
+        .gallery-hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+            padding: 70px 20px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .gallery-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 60% 40%, rgba(255,102,0,0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .gallery-hero p {
+            color: #ff6600;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .gallery-hero h1 {
+            color: #ffffff;
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+        .gallery-hero span {
+            color: #ff6600;
+        }
+        .gallery-hero .subtitle {
+            color: #aaa;
+            font-size: 15px;
+            font-weight: 400;
+            max-width: 550px;
+            margin: 0 auto;
+            letter-spacing: 0;
+            text-transform: none;
+        }
+
+        /* ── FILTER TABS ── */
+        .filter-bar {
+            background: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .filter-btn {
+            display: inline-block;
+            margin: 5px 6px;
+            padding: 8px 20px;
+            border-radius: 30px;
+            border: 2px solid #ff6600;
+            color: #ff6600;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: transparent;
+            font-family: 'Quicksand', sans-serif;
+        }
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #ff6600;
+            color: #fff;
+        }
+
+        /* ── GALLERY GRID ── */
+        .gallery-section {
+            padding: 40px 20px 60px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .category-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin: 35px 0 18px;
+            padding-left: 14px;
+            border-left: 5px solid #ff6600;
+        }
+        .category-title span {
+            font-size: 14px;
+            font-weight: 500;
+            color: #888;
+            margin-left: 10px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .gallery-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+            background: #fff;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        .gallery-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+        }
+        .gallery-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+            transition: transform 0.4s;
+        }
+        .gallery-card:hover img {
+            transform: scale(1.05);
+        }
+        .gallery-card .overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 220px;
+            background: rgba(255,102,0,0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .gallery-card:hover .overlay {
+            opacity: 1;
+        }
+        .overlay i {
+            color: #fff;
+            font-size: 36px;
+        }
+        .gallery-card .caption {
+            padding: 10px 14px;
+            font-size: 13px;
+            color: #555;
+            font-weight: 500;
+            background: #fff;
+        }
+
+        /* ── LIGHTBOX ── */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.93);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+        .lightbox.open {
+            display: flex;
+        }
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 80vh;
+            border-radius: 8px;
+            box-shadow: 0 0 60px rgba(255,102,0,0.3);
+            object-fit: contain;
+            animation: fadeZoom 0.3s ease;
+        }
+        @keyframes fadeZoom {
+            from { opacity: 0; transform: scale(0.9); }
+            to   { opacity: 1; transform: scale(1); }
+        }
+        .lightbox-caption {
+            color: #ccc;
+            font-size: 14px;
+            margin-top: 14px;
+            text-align: center;
+        }
+        .lightbox-close {
+            position: fixed;
+            top: 20px; right: 28px;
+            color: #fff;
+            font-size: 36px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+        .lightbox-close:hover { color: #ff6600; }
+
+        .lightbox-prev,
+        .lightbox-next {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,102,0,0.8);
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            padding: 12px 18px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.2s;
+            z-index: 10000;
+        }
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
+        .lightbox-prev:hover,
+        .lightbox-next:hover { background: #ff6600; }
+
+        .lightbox-counter {
+            color: #888;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        /* ── HIDDEN categories ── */
+        .cat-block { display: block; }
+        .cat-block.hidden { display: none; }
+
+        /* ── UPLOAD NOTICE ── */
+        .upload-notice {
+            background: #fff8f0;
+            border: 2px dashed #ff6600;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            color: #888;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .upload-notice i { font-size: 32px; color: #ff6600; margin-bottom:10px; display:block; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 576px) {
+            .gallery-hero h1 { font-size: 28px; }
+            .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
+            .gallery-card img, .gallery-card .overlay { height: 160px; }
+            .lightbox-prev { left: 5px; }
+            .lightbox-next { right: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ── TOP BAR (same as index.html) ── -->
+    <div class="top-bar d-none d-md-block">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="top-bar-left">
+                        <div class="text"><i class="fa fa-phone-alt"></i><p>+91 9030140600</p></div>
+                        <div class="text"><i class="fa fa-envelope"></i><p>contact@humanitycares.org</p></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="top-bar-right">
+                        <div class="social">
+                            <a href="https://x.com/HumanityCares" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.facebook.com/groups/390379417965448" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/humanitycares7/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── NAVBAR (same as index.html) ── -->
+    <div class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand">HUMANITY CARES</a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="causes.html" class="nav-item nav-link">Causes</a>
+                    <a href="event.html" class="nav-item nav-link">Events</a>
+                    <a href="blog.html" class="nav-item nav-link">Blog</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu">
+                            <a href="single.html" class="dropdown-item">Detail Page</a>
+                            <a href="service.html" class="dropdown-item">What We Do</a>
+                            <a href="team.html" class="dropdown-item">Meet The Team</a>
+                            <a href="donate.html" class="dropdown-item">Donate Now</a>
+                            <a href="volunteer.html" class="dropdown-item">Become A Volunteer</a>
+                            <a href="faq.html" class="dropdown-item">FAQ</a>
+                            <a href="gallery.html" class="dropdown-item active">Gallery</a>
+                            <a href="terms.html" class="dropdown-item">Terms & Conditions</a>
+                            <a href="privacy.html" class="dropdown-item">Privacy Policy</a>
+                            <a href="help.html" class="dropdown-item">Help</a>
+                            <a href="cookies.html" class="dropdown-item">Cookies</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── HERO ── -->
+    <div class="gallery-hero">
+        <p>Our Work in Pictures</p>
+        <h1>Humanity Cares <span>Gallery</span></h1>
+        <p class="subtitle">Every photo tells a story of hope, kindness, and the difference your support makes.</p>
+    </div>
+
+    <!-- ── FILTER BAR ── -->
+    <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterCat('all', this)">🌟 All</button>
+        <button class="filter-btn" onclick="filterCat('ration', this)">🍚 Ration Distribution</button>
+        <button class="filter-btn" onclick="filterCat('beds', this)">🛏️ Beds Donation</button>
+        <button class="filter-btn" onclick="filterCat('medical', this)">🏥 Medical Camps</button>
+        <button class="filter-btn" onclick="filterCat('education', this)">📚 Education</button>
+        <button class="filter-btn" onclick="filterCat('events', this)">🎗️ Events</button>
+        <button class="filter-btn" onclick="filterCat('volunteers', this)">🤝 Volunteers</button>
+    </div>
+
+    <!-- ── GALLERY CONTENT ── -->
+    <div class="gallery-section">
+
+        <!-- ══ RATION DISTRIBUTION ══ -->
+        <div class="cat-block" id="cat-ration">
+            <div class="category-title">🍚 Ration Distribution <span>Add your ration photos below</span></div>
+            <div class="gallery-grid">
+
+                <div class="gallery-card" onclick="openLightbox(this)">
+                    <img src="img/ration-1.jpg" alt="Ration Distribution">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                    <div class="caption">Ration kits packed and ready</div>
+                </div>
+
+                <div class="gallery-card" onclick="openLightbox(this)">
+                    <img src="img/ration-2.jpg" alt="Ration Distribution">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                    <div class="caption">Volunteers handing over ration to families</div>
+                </div>
+
+                <div class="gallery-card" onclick="openLightbox(this)">
+                    <img src="img/ration-3.jpg" alt="Ration Distribution">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                    <div class="caption">Children receiving food supplies</div>
+                </div>
+
+                <div class="gallery-card" onclick="openLightbox(this)">
+                    <img src="img/ration-4.jpg" alt="Ration Distribution">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                    <div class="caption">Widows collecting monthly ration kits</div>
+                </div>
+
+                <div class="gallery-card" onclick="openLightbox(this)">
+                    <img src="img/ration-5.jpg" alt="Ration Distribution">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                    <div class="caption">Team with community members</div>
+                </div>
+
+                <!-- Add more ration photos here by copying the block above -->
+
+            </div>
+        </div>
+
+        <!-- ══ BEDS DONATION ══ -->
+        <div class="cat-block" id="cat-beds">
+            <div class="category-title">🛏️ Beds Donated to Old Age Home <span>Add your beds photos below</span></div>
+            <div class="gallery-grid">
+
+                <div class="gallery-card" onclick="openLightbox(this)">
+                    <img src="img/beds-1.jpg" alt="Beds Donation">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                    <div class="caption">New beds delivered at the Old Age Home</div>
+                </div>
+
+                <div class="gallery-card" onclick="openLightbox(this)">
+                    <img src="img/beds-2.jpg" alt="Beds Donation">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                    <div class="caption">Humanity Cares volunteers setting up the beds</div>
+                </div>
+
+                <div class="gallery-card" onclick="openLightbox(this)">
+                    <img src="img/beds-3.jpg" alt="Beds Donation">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                    <div class="caption">Elderly residents with smiles of gratitude</div>
+                </div>
+
+                <!-- Add more beds photos here -->
+
+            </div>
+        </div>
+
+        <!-- ══ MEDICAL CAMPS ══ -->
+        <div class="cat-block" id="cat-medical">
+            <div class="category-title">🏥 Medical Camps <span>Add your medical camp photos below</span></div>
+            <div class="gallery-grid">
+
+                <div class="gallery-card" onclick="openLightbox(this)">
+                    <img src="img/medical-1.jpg" alt="Medical Camp">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                    <div class="caption">Free medical camp for underprivileged families</div>
+                </div>
+
+                <div class="gallery-card" onclick="openLightbox(this)">
+                    <img src="img/medical-2.jpg" alt="Medical Camp">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                    <div class="caption">Doctors providing free consultations</div>
+                </div>
+
+                <!-- Add more medical photos here -->
+
+            </div>
+        </div>
+
+        <!-- ══ EDUCATION ══ -->
+        <div class="cat-block" id="cat-education">
+            <div class="category-title">📚 Education Drives <span>Add your education photos below</span></div>
+            <div class="gallery-grid">
+
+                <div class="gallery-card" onclick="openLightbox(this)">
+                    <img src="img/edu-1.jpg" alt="Education">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                    <div class="caption">Educational workshop for children</div>
+                </div>
+
+                <div class="gallery-card" onclick="openLightbox(this)">
+                    <img src="img/edu-2.jpg" alt="Education">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                    <div class="caption">School supplies distributed to students</div>
+                </div>
+
+                <!-- Add more education photos here -->
+
+            </div>
+        </div>
+
+        <!-- ══ EVENTS ══ -->
+        <div class="cat-block" id="cat-events">
+            <div class="category-title">🎗️ Events <span>Add your event photos below</span></div>
+            <div class="gallery-grid">
+
+                <div class="gallery-card" onclick="openLightbox(this)">
+                    <img src="img/event-1.jpg" alt="Event">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                    <div class="caption">Supporting nursing mothers drive</div>
+                </div>
+
+                <div class="gallery-card" onclick="openLightbox(this)">
+                    <img src="img/event-2.jpg" alt="Event">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                    <div class="caption">Educational workshop event</div>
+                </div>
+
+                <!-- Add more event photos here -->
+
+            </div>
+        </div>
+
+        <!-- ══ VOLUNTEERS ══ -->
+        <div class="cat-block" id="cat-volunteers">
+            <div class="category-title">🤝 Our Volunteers <span>Add your volunteer photos below</span></div>
+            <div class="gallery-grid">
+
+                <div class="gallery-card" onclick="openLightbox(this)">
+                    <img src="img/team-1.jpg" alt="Volunteers">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                    <div class="caption">Syed Rafi – Founder & President</div>
+                </div>
+
+                <div class="gallery-card" onclick="openLightbox(this)">
+                    <img src="img/team-2.jpg" alt="Volunteers">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                    <div class="caption">Noor Afshan – Vice President</div>
+                </div>
+
+                <div class="gallery-card" onclick="openLightbox(this)">
+                    <img src="img/team-3.jpg" alt="Volunteers">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                    <div class="caption">Zubair Hussain – General Secretary</div>
+                </div>
+
+                <div class="gallery-card" onclick="openLightbox(this)">
+                    <img src="img/team-4.jpg" alt="Volunteers">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                    <div class="caption">Ridah Rameen – Treasurer</div>
+                </div>
+
+                <!-- Add more volunteer photos here -->
+
+            </div>
+        </div>
+
+        <!-- ══ HOW TO ADD MORE PHOTOS (visible only in code) ══
+        To add a new photo to any category, copy this block and paste
+        it inside the relevant gallery-grid div:
+
+        <div class="gallery-card" onclick="openLightbox(this)">
+            <img src="img/YOUR-PHOTO-NAME.jpg" alt="Description">
+            <div class="overlay"><i class="fas fa-search-plus"></i></div>
+            <div class="caption">Your caption here</div>
+        </div>
+        ══════════════════════════════════════════════════════════ -->
+
+    </div>
+
+    <!-- ── LIGHTBOX ── -->
+    <div class="lightbox" id="lightbox" onclick="closeLightboxOnBg(event)">
+        <button class="lightbox-close" onclick="closeLightbox()">×</button>
+        <button class="lightbox-prev" onclick="navigateLightbox(-1)">&#8249;</button>
+        <img id="lightbox-img" src="" alt="">
+        <p class="lightbox-caption" id="lightbox-caption"></p>
+        <p class="lightbox-counter" id="lightbox-counter"></p>
+        <button class="lightbox-next" onclick="navigateLightbox(1)">&#8250;</button>
+    </div>
+
+    <!-- ── FOOTER ── -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-contact">
+                        <h2>Our Head Office</h2>
+                        <p><i class="fa fa-map-marker-alt"></i>Rajendra Nagar, Hyderabad, India</p>
+                        <p><i class="fa fa-phone-alt"></i>+91 9030140600</p>
+                        <p><i class="fa fa-envelope"></i>contact@humanitycares.org</p>
+                        <div class="footer-social">
+                            <a class="btn btn-custom" href="https://x.com/HumanityCares"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-custom" href="https://www.facebook.com/groups/390379417965448"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-custom" href="https://www.youtube.com/@humanitycares2002"><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-custom" href="https://www.instagram.com/humanitycares7"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-link">
+                        <h2>Popular Links</h2>
+                        <a href="about.html">About Us</a>
+                        <a href="contact.html">Contact Us</a>
+                        <a href="causes.html">Popular Causes</a>
+                        <a href="event.html">Upcoming Events</a>
+                        <a href="blog.html">Latest Blog</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-link">
+                        <h2>Useful Links</h2>
+                        <a href="terms.html">Terms & conditions</a>
+                        <a href="privacy.html">Privacy policy</a>
+                        <a href="cookies.html">Cookies</a>
+                        <a href="help.html">Help</a>
+                        <a href="faq.html">FAQs</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-newsletter">
+                        <h2>Newsletter</h2>
+                        <form>
+                            <input class="form-control mb-2" placeholder="Email goes here">
+                            <button type="submit" class="btn btn-custom mb-2">Submit</button>
+                        </form>
+                        <label style="color:#fff;">Don't worry, we don't spam!</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container copyright">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; <a href="#">Humanity Cares</a>, All Right Reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to top -->
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+    <!-- JS Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        // ── LIGHTBOX ──
+        let allCards = [];
+        let currentIndex = 0;
+
+        function openLightbox(card) {
+            const img = card.querySelector('img');
+            const caption = card.querySelector('.caption').textContent;
+
+            // collect all currently visible cards
+            allCards = Array.from(document.querySelectorAll('.cat-block:not(.hidden) .gallery-card'));
+            currentIndex = allCards.indexOf(card);
+
+            document.getElementById('lightbox-img').src = img.src;
+            document.getElementById('lightbox-caption').textContent = caption;
+            updateCounter();
+            document.getElementById('lightbox').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function closeLightboxOnBg(e) {
+            if (e.target.id === 'lightbox') closeLightbox();
+        }
+
+        function navigateLightbox(dir) {
+            currentIndex = (currentIndex + dir + allCards.length) % allCards.length;
+            const card = allCards[currentIndex];
+            document.getElementById('lightbox-img').src = card.querySelector('img').src;
+            document.getElementById('lightbox-caption').textContent = card.querySelector('.caption').textContent;
+            updateCounter();
+        }
+
+        function updateCounter() {
+            document.getElementById('lightbox-counter').textContent =
+                (currentIndex + 1) + ' / ' + allCards.length;
+        }
+
+        // keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (!document.getElementById('lightbox').classList.contains('open')) return;
+            if (e.key === 'ArrowRight') navigateLightbox(1);
+            if (e.key === 'ArrowLeft')  navigateLightbox(-1);
+            if (e.key === 'Escape')     closeLightbox();
+        });
+
+        // ── FILTER ──
+        function filterCat(cat, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            document.querySelectorAll('.cat-block').forEach(block => {
+                if (cat === 'all') {
+                    block.classList.remove('hidden');
+                } else {
+                    block.id === 'cat-' + cat
+                        ? block.classList.remove('hidden')
+                        : block.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
